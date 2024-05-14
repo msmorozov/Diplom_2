@@ -1,8 +1,11 @@
+from mimesis import Field
 class EndpointsUrl:
-    CREATE_USER = 'https://stellarburgers.nomoreparties.site/api/auth/register'
-    LOGIN_USER = 'https://stellarburgers.nomoreparties.site/api/auth/login'
-    DELETE_USER = 'https://stellarburgers.nomoreparties.site/api/auth/user'
-    ORDER = 'https://stellarburgers.nomoreparties.site/api/orders'
+    BASE_URL = 'https://stellarburgers.nomoreparties.site/api'
+
+    CREATE_USER = f'{BASE_URL}/auth/register'
+    LOGIN_USER = f'{BASE_URL}/auth/login'
+    DELETE_USER = f'{BASE_URL}/auth/user'
+    ORDER = f'{BASE_URL}/orders'
 
 
 class Ingredients:
@@ -24,3 +27,11 @@ class TestData:
         {'email': 'new_incorrect_email@example.com', 'password': 'password123'},
         {'email': 'existing_user@example.com', 'password': 'new_incorrect_password'}
     ]
+
+class DataUser:
+
+    f = Field()
+
+    EMAIL = f("email")
+    PASSWORD = f("password")
+    NAME = f("name")

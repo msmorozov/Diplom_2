@@ -7,9 +7,9 @@ class TestLoginUser:
 
     @staticmethod
     @allure.title('Тест авторизации существующего пользователя')
-    def test_login_existing_user(user):
-        assert requests.post(EndpointsUrl.CREATE_USER, json=user).json().get('success')
-        assert requests.post(EndpointsUrl.LOGIN_USER, json=user).json().get('success')
+    def test_login_existing_user(user_create_fixture):
+        assert requests.post(EndpointsUrl.CREATE_USER, json=user_create_fixture).json().get('success')
+        assert requests.post(EndpointsUrl.LOGIN_USER, json=user_create_fixture).json().get('success')
 
     @staticmethod
     @allure.title('Тест авторизации с неверными учетными данными')
